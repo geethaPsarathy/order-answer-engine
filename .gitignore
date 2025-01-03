@@ -128,3 +128,36 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# OS and Editor Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+
+# Docker (Optional)
+docker-compose.override.yml
+*.dockerfile
+
+# Testing
+jest/
+*.test.js
+*.test.ts
+__snapshots__/
+
+# Build Artifacts
+dist/
+build/
+
+
+# Frontend
+frontend/.next
+frontend/out
+
+# Backend
+backend/__pycache__
+backend/.venv
+backend/.env
