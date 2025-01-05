@@ -2,20 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  .overflow-hidden-scrollable {
+    -ms-overflow-style: none;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .overflow-hidden-scrollable::-webkit-scrollbar {
+    display: none;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* body {
+  @apply bg-gray-50 dark:bg-gray-900;
+} */
+
+.animate-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: .5;
+  }
+  
+  50% {
+    opacity: .9;
+  }
+}
+
+.group:hover .group-hover\:block {
+  display: block !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.prose {
+  line-height: 1.6;
+}
+
+.prose a {
+  color: #3182ce;
+  text-decoration: underline;
+}
+
+.prose code {
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.dot-flashing {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #fff;
+  animation: dot-flashing 1s infinite linear alternate;
+}
+
+@keyframes dot-flashing {
+  0% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+
+/* User Message Box */
+.user-message {
+  background-color: #3B82F6;  /* Tailwind Blue-500 */
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  max-width: 75%;
+  margin-left: auto;
+}
+
+/* Assistant Message Box */
+.assistant-message {
+  background-color: #F3F4F6;  /* Tailwind Gray-100 */
+  color: #111827;  /* Tailwind Gray-900 */
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 75%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+.section-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Section Text */
+.section-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
