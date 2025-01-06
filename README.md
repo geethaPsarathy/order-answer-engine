@@ -60,14 +60,14 @@ Ever found yourself at a restaurant staring at an unknown dish on the menu, unsu
   - FastAPI  
   - GraphQL  
   - MongoDB  
-  - Llama (Meta) for LLM Integration  
+  - gpt for LLM Integration  
 - **APIs**: Yelp API, Reddit API  
 
 ---
 
 ### 📄 Future Enhancements  
 - **Expanded Dish Recommendations** – Broaden review sources and integrate with other platforms.  
-- **Gen AI Customization** – Fine-tune Llama to improve response quality.  
+- **Gen AI Customization** – Fine-tune gpt model to improve response quality.  
 - **Visual Review Summaries** – Implement graphs and visual data representations.  
 - **Enhanced Personalization** – Allow users to save dish preferences for future visits.  
 

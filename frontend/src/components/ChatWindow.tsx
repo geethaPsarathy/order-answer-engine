@@ -8,7 +8,8 @@ export type Message = {
   messageId: string;
   chatId: string;
   createdAt: Date;
-  content: { user_query?: string } | unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  content: { user_query?: string } | any;
   role: 'user' | 'assistant' | 'loading';
 };
 

@@ -105,7 +105,7 @@ async def decode_menu_service(
 
         # LLM-related steps (Final Insights and Suggestions)
         print(f"[INFO] Generating insights with LLM...")
-        final_insight = await generate_dish_insight(dish_name, intermediate_results["summarized_reviews"])
+        final_insight = await generate_dish_insight(dish_name, intermediate_results["summarized_reviews"] ,user_query)
 
         print(f"[INFO] Generating customizations and suggestions...")
         customizations, suggestions = await wait_for(

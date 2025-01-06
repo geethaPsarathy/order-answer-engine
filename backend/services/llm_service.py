@@ -13,7 +13,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 openai_model = "gpt-3.5-turbo"
 
 
-async def generate_dish_insight(dish_name, summarized_reviews, tone="positive"):
+async def generate_dish_insight(dish_name, summarized_reviews, user_query , tone="positive"):
     """
     Generate the final dish insight using LLM based on summarized customer reviews.
     Adjusts tone based on user input (positive, neutral, constructive).
@@ -26,10 +26,13 @@ async def generate_dish_insight(dish_name, summarized_reviews, tone="positive"):
     
     prompt = f"""
     Summarize the customer feedback on the dish '{dish_name}' using the following reviews:
-    {summarized_reviews}
-    
+    {summarized_reviews} 
+    and answer the {user_query} coombining the information from the reviews.
     {tone_instruction.get(tone, tone_instruction['neutral'])}
     Focus on taste, uniqueness, and commonly mentioned highlights.
+    
+    Generate an solid information based on the reviews and user query. Basically address all the aspects of user query with summarized reviews,user query and also provide a new information.
+    
     """
 
     try:
@@ -249,7 +252,7 @@ async def generate_response_from_messages(messages, user_query):
     )
 
     # Prepare a simplified prompt for ChatGPT
-    prompt = f"""
+    prompt1 = f"""
             You are a helpful assistant. Use the following conversation history to answer the user's query concisely and intuitively.
             The following are insights about the our conversation:
             Conversation History:
@@ -262,6 +265,18 @@ async def generate_response_from_messages(messages, user_query):
             Don't say Based on the previous information, or anything similar.
             Response should be best ,intuitive , directly adress the user query and should be concise. 
             """
+    prompt2 = f"""
+    You are a helpful assistant. Use the following conversation history to answer the user's query thoughtfully and comprehensively.
+
+    Conversation History:
+    {context}
+
+    User's Query: {user_query}
+
+    Craft a direct, engaging response that intuitively answers the query without repeating prior responses. 
+    Focus on providing fresh insights that address the user’s query fully. Where necessary, expand with relevant examples or explanations to offer additional value.  
+    Ensure the response is insightful, well-structured, and easy to understand.
+    """
 
     # Call OpenAI's GPT API
     try:
@@ -269,7 +284,7 @@ async def generate_response_from_messages(messages, user_query):
             model=openai_model,
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": prompt1+prompt2}
             ],
             max_tokens=300,
             temperature=0.7,

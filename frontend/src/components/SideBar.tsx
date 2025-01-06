@@ -8,8 +8,9 @@ import useLibrary from '@/hooks/useLibrary';
 const drafts = [{ id: 1, title: 'Work in progress' }];
 
 const Sidebar = () => {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/library`;  // API URL
   const [isOpen, setIsOpen] = useState(true);
-  const library = useLibrary();  // Use the hook
+  const library = useLibrary(url);  // Use the hook
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -122,3 +123,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+

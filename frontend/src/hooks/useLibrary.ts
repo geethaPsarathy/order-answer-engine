@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import dotenv from 'dotenv';
+
+dotenv.config(); 
 
 type LibraryItem = {
   _id: string;
@@ -7,13 +10,15 @@ type LibraryItem = {
   chatId: string;
 };
 
-const useLibrary = () => {
+
+
+const useLibrary = (url: string | URL | Request) => {
   const [library, setLibrary] = useState<LibraryItem[]>([]);
 
   useEffect(() => {
     const fetchLibrary = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/library');
+        const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Failed to fetch library items');
         }
@@ -32,7 +37,6 @@ const useLibrary = () => {
         console.error('Error fetching library:', error);
       }
     };
-
     fetchLibrary();
   }, []);
 

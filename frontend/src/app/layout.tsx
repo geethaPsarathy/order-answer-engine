@@ -25,8 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full" lang="en">
+    <html className="h-full dark" style={{colorScheme:"dark"}} lang="en">
       <body
+        
         className={cn(
           "h-full bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text",
           montserrat.className

@@ -92,7 +92,7 @@ const HomePage = () => {
     const chatId = uuidv4();
     try {
       // Create new chat
-      const createChatResponse = await fetch('http://127.0.0.1:8000/chat/new', {
+      const createChatResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat/new`, {
         method: 'POST',
         body: JSON.stringify({ chatId, title: message.trim() }),
         headers: { 'Content-Type': 'application/json' },
