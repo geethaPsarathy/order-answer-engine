@@ -26,14 +26,16 @@ Ever found yourself at a restaurant staring at an unknown dish on the menu, unsu
 - **Tech Stack**: Next.js + Tailwind CSS + TypeScript  
 - **Real-time Application** – Immediate feedback and dynamic interactions.  
 - **Query History with URLs** – Each query generates a unique URL, allowing users to revisit or share past queries. This feature was inspired by a need for enhanced query navigation, similar to how Perplexity operates.  
-- **Interactive User Prompts** – Jump directly to specific query results or follow-up questions by selecting from previous prompts.  
+- **Interactive User Prompts** – Jump directly to specific query results or follow-up questions by selecting from previous prompts.
 
-#### **Backend**  
-- **Architecture**: Refer to the architecture diagram for detailed structure.  
+<img width="357" alt="Screenshot 2025-01-05 at 7 51 41 PM" src="https://github.com/user-attachments/assets/5b8c7e06-59d3-4a34-b850-ff2f6173fa73" />
+  
+
+#### **Backend**    
 - **Key Components**:  
   - **Retrieval-Augmented Generation (RAG) Pipeline** – Fetches and analyzes relevant data from review platforms.  
   - **Follow-ups** – Supports additional user questions related to previous queries.  
-  - **LLM Integration** – Powered by Llama and other large language models to enhance the quality of generated responses.  
+  - **LLM Integration** – Powered by GPT 3.5 and other large language models to enhance the quality of generated responses.  
 
 ---
 
@@ -44,6 +46,10 @@ Ever found yourself at a restaurant staring at an unknown dish on the menu, unsu
 4. **Customization** – Users can refine their queries or request additional recommendations, adjusting preferences as needed.  
 
 ---
+
+### ⚙️ Architecture: Refer to the architecture diagram for detailed structure.
+![B-2025-01-05-232522](https://github.com/user-attachments/assets/6aef7614-9b1c-4679-a825-661759f11bdb)
+
 
 ### 🛠️ Tech Stack  
 - **Frontend**:  
