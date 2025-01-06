@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
       ? process.env.PRODUCTION_URL
       : process.env.LOCAL_URL,
   },
+  assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || '',
 };
 
 export default nextConfig;
