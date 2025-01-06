@@ -54,7 +54,5 @@ next-env.d.ts
 *.swp
 *.swo
 
-# # Tailwind
-# tailwind.config.js
-# tailwind.config.ts
-# postcss.config.js
+
+output.css

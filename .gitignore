@@ -161,3 +161,8 @@ frontend/out
 backend/__pycache__
 backend/.venv
 backend/.env
+
+.next/  # Next.js
+.vercel/ # Vercel-specific builds
+.build/
+.cache/
