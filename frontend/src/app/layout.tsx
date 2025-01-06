@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
+import '../styles/globals.css';
 import Sidebar from "@/components/SideBar";
 import { Toaster } from "sonner";
 import ThemeProvider from "@/components/theme/Provider";

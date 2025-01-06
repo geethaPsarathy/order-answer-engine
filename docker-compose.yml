@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: my-fastapi
+    ports:
+      - "8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_DB=fastapi_db
+    env_file:
+      - .env
+    networks:
+      - my_network
+
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - my_network
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - my_network
+
+volumes:
+  mongo_data:
+
+networks:
+  my_network:
+    driver: bridge
