@@ -3,7 +3,7 @@
 ### 🥘 Overview  
 **Blend.ai** is an application designed to provide detailed insights into restaurant dishes by aggregating reviews from platforms like Yelp and Reddit. The app leverages user-generated content to help diners make informed decisions when faced with unfamiliar menu items.  
 
-- **Live Demo** – https://www.loom.com/share/ac1423768cde43a6a2d7b1208391e095?sid=9cb9d229-d6bb-41dc-94c5-050bfabba122
+
 
 ---
 
